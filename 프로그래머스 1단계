@@ -1,0 +1,161 @@
+//짝수와 홀수
+function solution(num) {
+    if(num%2===0)return "Even"
+    else return "Odd"
+}
+
+//약수의 합
+function solution(n) {
+    var answer = 0;
+    for(let i=1; i<=n; i++){
+        if(n%i==0)answer+=i
+    }
+    return answer;
+}
+//평균 구하기
+function solution(arr) {
+    let sum=0;
+    for(let x of arr){
+        sum+=x;
+    }
+    return sum/arr.length;
+}
+//자리수 더하기
+function solution(n){
+    var answer = 0;
+    while(n){
+        answer+= n%10;
+        n=Math.floor(n/10)
+    }
+    return answer;
+}
+//x만큼 간격이 있는 n개의 숫자
+function solution(x, n) {
+    return Array(n).fill(x).map((v, i) => (i + 1) * v)
+}
+//나머지가 1이 되는 수 찾기
+function solution(n) {
+    for(let i=1; i<=n; i++){
+        if(n%i===1)return i
+    }
+}
+
+//문자열 내 p와 y의 개수
+function solution(s){
+    let answer=0;
+    s=s.toLowerCase()
+    for(let x of s){
+        if(x==='p')answer++
+        else if(x==='y')answer--
+    }
+    if(answer===0)return true
+    return false  
+}
+//정수 제곱근 판별
+function solution(n) {
+    for(let i=1; i<=n; i++){
+        if(i*i ===n)return (i+1)*(i+1)
+    }
+    return -1
+}
+//자연수 뒤집어 배열로 만들기
+function solution(n) {
+    return String(n).split("").reverse().map(a=>Number(a))   
+}
+//정수 내림차순으로 배치하기
+function solution(n) {
+    return Number(String(n).split("").map(a=>Number(a)).sort((a,b)=>b-a).join(""))
+}
+//문자열 정수로 바꾸기
+function solution(s) {
+    s=Number(s)
+    return s
+}
+//히샤드 수
+function solution(x) {
+    let sum=0;
+    let tmp=x;
+    while(tmp){
+        sum += tmp%10;
+        tmp=Math.floor(tmp/10)
+    }
+    if(x%sum===0)return true
+    else return false
+}
+//두 정수 사이의 합
+function solution(a, b) {
+    let sum=0;
+    if(a>b){
+        for(let i=b; i<=a; i++){
+            sum+=i;
+        }
+    }
+    else{
+        for(let i=a; i<=b; i++){
+            sum+=i;
+        }
+    }
+    return sum;
+}
+//콜라츠 추측
+function solution(num) {
+    var answer = 0;
+    while(num!=1){
+        if(num%2===0){
+            num=num/2
+        }
+        else(num=(num*3)+1)
+        answer++
+        if(answer>500)return -1
+    }
+    return answer;
+}
+//서울에서 김서방 찾기
+function solution(seoul) {
+    return "김서방은 "+seoul.indexOf("Kim")+"에 있다"
+    
+}
+//나누어 떨어지는 숫자 배열
+function solution(arr, divisor) {
+    var answer = [];
+    for(let x of arr){
+        if(x%divisor===0)answer.push(x)
+    }
+    if(answer.length===0)answer.push(-1)
+    return answer.sort((a,b)=>a-b);
+}
+//핸드폰 번호 가리기
+function solution(phone_number) {
+    phone_number=phone_number.split("")
+    for(let i=0; i<(phone_number.length) - 4; i++){
+        phone_number[i]="*";
+    }
+    return phone_number.join("");
+}
+//음양 더하기
+function solution(absolutes, signs) {
+    var answer = 0;
+    for(let i=0; i<absolutes.length; i++){
+        if(signs[i]===true){
+            answer+=absolutes[i]
+        }
+        else
+            answer-=absolutes[i]
+    }
+    return answer;
+}
+//제일 작은 수 제거하기
+function solution(numbers) {
+    numbers.splice(numbers.indexOf(Math.min(...numbers)),1)
+     if(numbers.length===0)return -1
+     return numbers
+}
+
+//없는 숫자 더하기
+function solution(numbers) {
+    var answer = 0;
+    for(let i=0; i<10; i++){
+        if(!numbers.includes(i)) answer += i; // numbers가 i를 포함하지 않는다면, answer에 그 i 값들을 더해라
+    } 
+    return answer;
+}
